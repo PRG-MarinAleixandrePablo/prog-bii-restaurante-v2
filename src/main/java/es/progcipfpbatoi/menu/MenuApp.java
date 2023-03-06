@@ -1,7 +1,7 @@
 package es.progcipfpbatoi.menu;
 
 import es.progcipfpbatoi.controller.Restaurant;
-import es.progcipfpbatoi.core.AnsiColor;
+import es.progcipfpbatoi.utils.AnsiColor;
 import es.progcipfpbatoi.utils.GestorIO;
 
 public class MenuApp {
@@ -39,7 +39,8 @@ public class MenuApp {
         } else if (option == this.OPTION_EXIT) {
             showGoodbyeBanner();
         }else {
-            System.out.println("Opción no válida");
+            AnsiColor.errorOutput("Opción no válida");
+
         }
     }
 
@@ -49,7 +50,7 @@ public class MenuApp {
         System.out.println(this.OPTION_VIEW_ORDER + ". Visualizar orden");
         System.out.println(this.OPTION_SERVE_ORDER + ". Servir pedido");
         System.out.println(this.OPTION_EXIT + ". Salir");
-        return GestorIO.getInt("");
+        return GestorIO.obtenerEntero("Selecciona una opción: ");
     }
 
     private void showWelcomeBanner(){

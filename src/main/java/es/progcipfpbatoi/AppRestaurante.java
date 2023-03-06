@@ -2,16 +2,16 @@ package es.progcipfpbatoi;
 
 import es.progcipfpbatoi.controller.Restaurant;
 import es.progcipfpbatoi.menu.MenuApp;
-import es.progcipfpbatoi.model.repositorios.OrderRepository;
-import es.progcipfpbatoi.model.repositorios.ProductRepository;
+import es.progcipfpbatoi.model.repositorios.InMemoryOrderRepository;
+import es.progcipfpbatoi.model.repositorios.InMemoryProductRepository;
 
-public class TestRestaurant {
+public class AppRestaurante {
 
     public static void main(String[] args) {
 
         //Cargamos la lista de productos y de pedidos
-        ProductRepository productDatabase = new ProductRepository();
-        OrderRepository orderDatabase = new OrderRepository();
+        InMemoryProductRepository productDatabase = new InMemoryProductRepository();
+        InMemoryOrderRepository orderDatabase = new InMemoryOrderRepository();
 
         //Creamos el restaurante
         Restaurant restaurant = new Restaurant(productDatabase, orderDatabase);

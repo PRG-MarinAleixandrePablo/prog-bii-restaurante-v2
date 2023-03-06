@@ -10,30 +10,19 @@ public class GestorIO {
         scanner = new Scanner(System.in);
     }
 
-    public static int getInt(String mensaje) {
+    public static int obtenerEntero(String mensaje) {
         do {
-            System.out.print(mensaje + " : ");
+            System.out.print(mensaje);
             if (!scanner.hasNextInt()) {
-                System.out.print("Debe introducir un entero");
+                AnsiColor.errorOutput("Error! Debe introducir un entero");
                 scanner.next();
             } else {
-                int leido =  scanner.nextInt();
-                limpiarBuffer();
-                return leido;
+                return scanner.nextInt();
             }
         } while (true);
     }
 
-
-
-    public static String getString(String mensaje) {
+    public static String obtenerString(String mensaje) {
         System.out.print(mensaje + " : ");
-        return scanner.nextLine();
-    }
-
-
-
-    private static void limpiarBuffer() {
-        scanner.nextLine();
-    }
-}
+        return scanner.next();
+    }}

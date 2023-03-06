@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>groupId</groupId>
-  <artifactId>PROG-BII-Restaurante</artifactId>
+  <artifactId>PROG-BII-Restaurante-v2</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -71,9 +71,17 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>vendors/</classpathPrefix>
-              <mainClass>es.progcipfpbatoi.TestRestaurant</mainClass>
+              <mainClass>es.progcipfpbatoi.AppRestaurante</mainClass>
             </manifest>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>9</source>
+          <target>9</target>
         </configuration>
       </plugin>
     </plugins>

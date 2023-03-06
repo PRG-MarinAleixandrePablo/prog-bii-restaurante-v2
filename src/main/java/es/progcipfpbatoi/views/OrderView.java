@@ -6,7 +6,7 @@ import de.vandermeer.asciithemes.TA_GridThemes;
 import de.vandermeer.asciithemes.a7.A7_Grids;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 import es.progcipfpbatoi.model.entidades.Order;
-import es.progcipfpbatoi.model.entidades.Product;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 public class OrderView {
 
@@ -37,11 +37,11 @@ public class OrderView {
         row.setTextAlignment(TextAlignment.CENTER);
         at.addRule();
         for (Product product: order.getProducts()) {
-            AT_Row row2 = at.addRow(product.getCod(), null, null, null, product.getName(), product.getPrizeWithoutDiscount() + "€", null, product.getPercentageDisccount() + "€", product.getPrize() + "€");
+            AT_Row row2 = at.addRow(product.getCod(), null, null, null, product.getName(), prizeToCurrencyFormat(product.getPrizeWithoutDiscount()), null, prizeToCurrencyFormat(product.getPercentageDisccount()), prizeToCurrencyFormat(product.getPrize()));
             row2.setTextAlignment(TextAlignment.CENTER);
             at.addRule();
         }
-        row = at.addRow(null, null, null, null, null, "", null, "Total", order.getOrderPrize() + "€");
+        row = at.addRow(null, null, null, null, null, "", null, "Total", prizeToCurrencyFormat(order.getOrderPrize()));
         row.setTextAlignment(TextAlignment.CENTER);
         at.addRule();
         row = at.addRow("*", "*", "*", "*", "*", "*", "*", "*", "*");
@@ -51,6 +51,10 @@ public class OrderView {
         at.getContext().setGridTheme(TA_GridThemes.FULL);
         return at.render();
 
+    }
+
+    private String prizeToCurrencyFormat(double prize) {
+        return String.format("%.2f€", order.getOrderPrize());
     }
 
     @Override

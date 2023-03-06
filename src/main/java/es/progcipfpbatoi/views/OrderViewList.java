@@ -5,7 +5,7 @@ import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciithemes.TA_GridThemes;
 import de.vandermeer.asciithemes.a7.A7_Grids;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
-import es.progcipfpbatoi.core.AnsiColor;
+import es.progcipfpbatoi.utils.AnsiColor;
 import es.progcipfpbatoi.model.entidades.Order;
 
 import java.util.ArrayList;

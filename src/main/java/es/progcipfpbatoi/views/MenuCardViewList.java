@@ -2,7 +2,7 @@ package es.progcipfpbatoi.views;
 
 import com.github.freva.asciitable.AsciiTable;
 import com.github.freva.asciitable.Column;
-import es.progcipfpbatoi.model.entidades.Product;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,9 @@
 package es.progcipfpbatoi.model.entidades;
 
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Order {
 
@@ -20,6 +23,10 @@ public class Order {
         this.code = code;
         served = false;
         this.products = new ArrayList<>();
+    }
+
+    public Order(String code) {
+        this.code = code;
     }
 
     public void addNewProduct(Product product) {
@@ -71,6 +78,23 @@ public class Order {
             totalPrize += product.getPrize();
         }
         return totalPrize;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Order)) {
+            return false;
+        }
+        Order order = (Order) o;
+        return code.equals(order.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
     }
 
 }

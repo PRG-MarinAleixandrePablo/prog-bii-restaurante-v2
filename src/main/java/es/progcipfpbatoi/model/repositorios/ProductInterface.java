@@ -1,16 +1,11 @@
 package es.progcipfpbatoi.model.repositorios;
 
-import es.progcipfpbatoi.model.entidades.Product;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 import java.util.ArrayList;
 
 public interface ProductInterface {
-    void add(Product product);
-    ArrayList<Product> findAll();
+    ArrayList<Product> findAll(Class<? extends Product> productClass);
 
     Product findByCod(String cod);
-
-    boolean remove(String cod);
-
-    String getNextProductCode();
 }

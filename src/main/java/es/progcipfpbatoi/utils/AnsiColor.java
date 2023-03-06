@@ -1,4 +1,4 @@
-package es.progcipfpbatoi.core;
+package es.progcipfpbatoi.utils;
 
 public final class AnsiColor {
 
@@ -40,6 +40,10 @@ public final class AnsiColor {
 
     public static void colorizeOutput(String colorCode, String original) {
         System.out.println(colorCode + original + SANE);
+    }
+
+    public static void errorOutput(String original) {
+        System.out.println(RED + original + SANE);
     }
 
 }

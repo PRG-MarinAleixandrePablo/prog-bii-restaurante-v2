@@ -2,15 +2,15 @@ package es.progcipfpbatoi.model.repositorios;
 
 import es.progcipfpbatoi.model.entidades.Order;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public interface OrderInterface {
-    void put(String code, Order order);
+    void add(Order order);
 
     int size();
 
-    HashMap<String, Order> findAll();
+    ArrayList<Order> findAll();
 
-    Order getByCod(String code);
+    Order findByCod(String code);
 
 }
