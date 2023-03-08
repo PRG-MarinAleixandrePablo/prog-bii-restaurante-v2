@@ -6,7 +6,9 @@ import es.progcipfpbatoi.model.entidades.producttypes.types.Drink;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Sandwich;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Starter;
 import es.progcipfpbatoi.model.repositorios.ProductInterface;
-import es.progcipfpbatoi.views.MenuCardViewList;
+import es.progcipfpbatoi.views.types.MenuCardDrinksView;
+import es.progcipfpbatoi.views.types.MenuCardStartersView;
+import es.progcipfpbatoi.views.types.MenuCardViewList;
 
 public class Catalogue {
 
@@ -18,7 +20,16 @@ public class Catalogue {
 
     public void listAll(Class type) {
 
-        MenuCardViewList menuCardView = new MenuCardViewList(productInterface.findAll(type));
+        MenuCardViewList menuCardView;
+
+        if (type == Drink.class) {
+            menuCardView = new MenuCardDrinksView(productInterface.findAll(type));
+        } else if (type == Starter.class) {
+            menuCardView = new MenuCardStartersView(productInterface.findAll(type));
+        } else {
+            menuCardView = new MenuCardViewList(productInterface.findAll(type));
+        }
+
         menuCardView.show();
     }
 

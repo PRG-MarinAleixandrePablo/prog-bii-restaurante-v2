@@ -35,14 +35,14 @@ public class Waiter {
      * Preguntar al usuario por los productos que desea tomar
      */
     private void askForProducts(Order order){
-        System.out.println("Buenos días, que deseas tomar?");
-        System.out.println("¿Qué desea beber?");
+        System.out.println("Buenos días, ¿qué desea tomar?");
+        System.out.println("¿Para beber?");
         selectProductsOfType(Drink.class, order);
         System.out.println("¿Desea tomar algo de entrante?");
         selectProductsOfType(Starter.class, order);
-        System.out.println("¿Desea tomar bocadillos?");
+        System.out.println("¿Desea tomar algún montadito?");
         selectProductsOfType(Sandwich.class, order);
-        System.out.println("¿Quieres algo de postre?");
+        System.out.println("¿Y de postre?");
         selectProductsOfType(Desert.class, order);
     }
 

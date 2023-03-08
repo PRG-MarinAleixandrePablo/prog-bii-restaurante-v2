@@ -1,4 +1,4 @@
-package es.progcipfpbatoi.views;
+package es.progcipfpbatoi.views.types;
 
 import com.github.freva.asciitable.AsciiTable;
 import com.github.freva.asciitable.Column;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MenuCardViewList {
 
-    private final List<Product> products;
+    protected final List<Product> products;
 
     public MenuCardViewList(ArrayList<Product> menuCard) {
         this.products = menuCard;
@@ -20,7 +20,7 @@ public class MenuCardViewList {
         System.out.println(renderView());
     }
 
-    private String renderView() {
+    protected String renderView() {
         return AsciiTable.getTable(products, Arrays.asList(
                 new Column().with(Product::getCod),
                 new Column().header("Nombre").with(Product::getName),

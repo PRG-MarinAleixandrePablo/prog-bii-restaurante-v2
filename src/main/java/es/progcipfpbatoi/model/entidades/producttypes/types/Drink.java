@@ -4,8 +4,6 @@ import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 public class Drink extends Product {
 
-    public enum Size {BIG, NORMAL, SMALL}
-
     private boolean refillable;
 
     private Size size;
@@ -22,4 +20,11 @@ public class Drink extends Product {
         this.size = Size.NORMAL;
     }
 
+    public Size getSize() {
+        return size;
+    }
+
+    public boolean isRefillable() {
+        return refillable;
+    }
 }
