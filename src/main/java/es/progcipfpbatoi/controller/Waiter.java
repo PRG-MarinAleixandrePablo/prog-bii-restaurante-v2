@@ -12,7 +12,7 @@ import es.progcipfpbatoi.utils.Validator;
 
 public class Waiter {
 
-    private Catalogue catalogue;
+    private final Catalogue catalogue;
 
     public Waiter(Catalogue catalogue) {
         this.catalogue = catalogue;
@@ -35,7 +35,7 @@ public class Waiter {
      * Preguntar al usuario por los productos que desea tomar
      */
     private void askForProducts(Order order){
-        System.out.println("Buenos dias, que deseas Tomar?");
+        System.out.println("Buenos días, que deseas tomar?");
         System.out.println("¿Qué desea beber?");
         selectProductsOfType(Drink.class, order);
         System.out.println("¿Desea tomar algo de entrante?");

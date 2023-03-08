@@ -32,7 +32,7 @@ public class InMemoryProductRepository implements ProductInterface{
 
     public Product findByCod(String cod) {
         for (Product product: productList) {
-            if (product.getCod().equals(cod)){
+            if (product.containsThisCode(cod)){
                 return product;
             }
         }

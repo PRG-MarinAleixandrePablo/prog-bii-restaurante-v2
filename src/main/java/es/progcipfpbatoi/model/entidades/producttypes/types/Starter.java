@@ -8,7 +8,7 @@ public class Starter extends Product {
 
     public Starter(String cod, String name, float prize, float disccount, float vat) {
 
-        super(cod, name, prize, disccount, vat);
+        super(cod, name, prize, disccount, vat, "e");
 
     }
 

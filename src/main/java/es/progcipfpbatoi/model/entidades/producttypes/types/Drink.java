@@ -11,13 +11,13 @@ public class Drink extends Product {
     private Size size;
 
     public Drink(String cod, String name, float prize, float disccount, float vat) {
-        super(cod, name, prize, disccount, vat);
+        super(cod, name, prize, disccount, vat, "b");
         this.refillable = false;
         this.size = Size.NORMAL;
     }
 
     public Drink(String cod, String name) {
-        super(cod, name, 1.0f, 0f, 0.1f);
+        super(cod, name, 1.0f, 0f, 0.1f, "b");
         this.refillable = false;
         this.size = Size.NORMAL;
     }

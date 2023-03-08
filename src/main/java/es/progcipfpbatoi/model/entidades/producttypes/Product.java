@@ -1,5 +1,7 @@
 package es.progcipfpbatoi.model.entidades.producttypes;
 
+import java.util.Objects;
+
 public abstract class Product {
 
     private String cod;
@@ -12,12 +14,15 @@ public abstract class Product {
 
     private float vat;
 
-    public Product(String cod, String name, float prize, float disccount, float vat) {
+    private String prefixCode;
+
+    public Product(String cod, String name, float prize, float disccount, float vat, String prefixCode) {
         this.cod = cod;
         this.name = name;
         this.prize = prize;
         this.discount = disccount;
         this.vat = vat;
+        this.prefixCode = prefixCode;
     }
 
     public Product(String cod, String name) {
@@ -53,4 +58,7 @@ public abstract class Product {
         return discount * 100;
     }
 
+    public boolean containsThisCode(String cod) {
+        return this.cod.equals(cod);
+    }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class OrderViewList {
 
-    private ArrayList<Order> orderList;
+    private final ArrayList<Order> orderList;
 
     public OrderViewList(ArrayList<Order> orderList) {
         this.orderList = orderList;

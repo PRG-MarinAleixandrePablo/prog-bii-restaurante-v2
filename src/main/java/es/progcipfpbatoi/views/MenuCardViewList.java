@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MenuCardViewList {
 
-    private List<Product> products;
+    private final List<Product> products;
 
     public MenuCardViewList(ArrayList<Product> menuCard) {
         this.products = menuCard;
@@ -22,10 +22,8 @@ public class MenuCardViewList {
 
     private String renderView() {
         return AsciiTable.getTable(products, Arrays.asList(
-                new Column().with(
-                        (Product product) -> product.getCod()),
-                new Column().header("Nombre").with(
-                        (Product product) -> product.getName()),
+                new Column().with(Product::getCod),
+                new Column().header("Nombre").with(Product::getName),
                 new Column().header("Precio").with((
                         Product product) -> String.format("%.02f€", product.getPrizeWithoutDiscount())),
                 new Column().header("Descuento (%)").with((

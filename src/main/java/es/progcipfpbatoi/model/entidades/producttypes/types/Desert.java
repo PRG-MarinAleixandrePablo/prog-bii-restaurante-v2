@@ -11,7 +11,7 @@ public class Desert extends Product {
 
     public Desert(String cod, String name,
                   float prize, float disccount, float vat, Characteristic... characteristic) {
-        super(cod, name, prize, disccount, vat);
+        super(cod, name, prize, disccount, vat, "p");
         this.characteristic = new HashSet<>(List.of(characteristic));
     }
 

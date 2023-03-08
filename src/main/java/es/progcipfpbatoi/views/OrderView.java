@@ -10,7 +10,7 @@ import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 public class OrderView {
 
-    private Order order;
+    private final Order order;
 
     public OrderView(Order order) {
         this.order = order;
