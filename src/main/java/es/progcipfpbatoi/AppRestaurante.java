@@ -2,8 +2,8 @@ package es.progcipfpbatoi;
 
 import es.progcipfpbatoi.controller.Restaurant;
 import es.progcipfpbatoi.menu.MenuApp;
-import es.progcipfpbatoi.model.repositorios.InMemoryOrderRepository;
-import es.progcipfpbatoi.model.repositorios.InMemoryProductRepository;
+import es.progcipfpbatoi.model.dao.InMemoryOrderRepository;
+import es.progcipfpbatoi.model.dao.InMemoryProductRepository;
 
 public class AppRestaurante {
 

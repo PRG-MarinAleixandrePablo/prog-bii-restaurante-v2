@@ -1,15 +1,14 @@
 package es.progcipfpbatoi.controller;
 
 import es.progcipfpbatoi.utils.AnsiColor;
-import es.progcipfpbatoi.model.entidades.Order;
-import es.progcipfpbatoi.model.repositorios.OrderInterface;
-import es.progcipfpbatoi.model.repositorios.ProductInterface;
+import es.progcipfpbatoi.model.dto.Order;
+import es.progcipfpbatoi.model.dao.OrderInterface;
+import es.progcipfpbatoi.model.dao.ProductInterface;
 import es.progcipfpbatoi.utils.GestorIO;
-import es.progcipfpbatoi.views.OrderView;
-import es.progcipfpbatoi.views.OrderViewList;
+import es.progcipfpbatoi.view.OrderView;
+import es.progcipfpbatoi.view.OrderViewList;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Restaurant {
 

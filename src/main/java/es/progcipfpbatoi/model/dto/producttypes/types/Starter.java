@@ -1,6 +1,6 @@
-package es.progcipfpbatoi.model.entidades.producttypes.types;
+package es.progcipfpbatoi.model.dto.producttypes.types;
 
-import es.progcipfpbatoi.model.entidades.producttypes.Product;
+import es.progcipfpbatoi.model.dto.producttypes.Product;
 
 public class Starter extends Product {
 
@@ -11,10 +11,15 @@ public class Starter extends Product {
     }
 
     public Starter(String cod, String name) {
-        super(cod, name);
+        super(cod, name, "e");
     }
 
     public int getRation() {
         return ration;
+    }
+
+    @Override
+    public String getExtras() {
+        return String.format("Raciones: %s", ration);
     }
 }

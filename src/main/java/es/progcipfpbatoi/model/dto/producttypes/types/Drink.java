@@ -1,6 +1,6 @@
-package es.progcipfpbatoi.model.entidades.producttypes.types;
+package es.progcipfpbatoi.model.dto.producttypes.types;
 
-import es.progcipfpbatoi.model.entidades.producttypes.Product;
+import es.progcipfpbatoi.model.dto.producttypes.Product;
 
 public class Drink extends Product {
 
@@ -15,9 +15,7 @@ public class Drink extends Product {
     }
 
     public Drink(String cod, String name) {
-        super(cod, name, 1.0f, 0f, 0.1f, "b");
-        this.refillable = false;
-        this.size = Size.NORMAL;
+        this(cod, name, 1.0f, 0f, 0.1f);
     }
 
     public Size getSize() {
@@ -26,5 +24,10 @@ public class Drink extends Product {
 
     public boolean isRefillable() {
         return refillable;
+    }
+
+    @Override
+    public String getExtras() {
+        return String.format("Rellenable: %b, Tamaño: %s", (refillable)? "Sí": "No", size);
     }
 }

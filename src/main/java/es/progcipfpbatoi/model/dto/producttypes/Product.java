@@ -1,6 +1,4 @@
-package es.progcipfpbatoi.model.entidades.producttypes;
-
-import java.util.Objects;
+package es.progcipfpbatoi.model.dto.producttypes;
 
 public abstract class Product {
 
@@ -17,7 +15,7 @@ public abstract class Product {
     private String prefixCode;
 
     public Product(String cod, String name, float prize, float disccount, float vat, String prefixCode) {
-        this.cod = cod;
+        this.cod = prefixCode + cod;
         this.name = name;
         this.prize = prize;
         this.discount = disccount;
@@ -25,12 +23,8 @@ public abstract class Product {
         this.prefixCode = prefixCode;
     }
 
-    public Product(String cod, String name) {
-        this.cod = cod;
-        this.name = name;
-        this.discount = 0f;
-        this.prize = 1.25f;
-        this.vat = 0.1f;
+    public Product(String cod, String name, String prefixCode) {
+        this(cod, name, 1.25f, 0f, 0.1f, prefixCode);
     }
 
     public String getCod() {
@@ -54,11 +48,17 @@ public abstract class Product {
         this.discount = disccount;
     }
 
-    public float getPercentageDisccount() {
+    public float getPercentageDiscount() {
         return discount * 100;
     }
 
     public boolean containsThisCode(String cod) {
         return this.cod.equals(cod);
+    }
+
+
+
+    public String getExtras() {
+        return "";
     }
 }
