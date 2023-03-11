@@ -24,9 +24,13 @@ public class Restaurant {
      */
     public void attendClient() {
         Order order = waiter.attend(getNextOrderCode());
-        orderInterface.add(order);
-        System.out.println(AnsiColor.colorize(AnsiColor.GREEN, "Pedido registrado con éxito "));
-        showOrder(order);
+        if (order != null) {
+            orderInterface.add(order);
+            System.out.println(AnsiColor.colorize(AnsiColor.GREEN, "Pedido registrado con éxito "));
+            showOrder(order);
+        } else {
+            System.out.println("Pedido no registrado por no tener ningún producto");
+        }
     }
 
     /**
