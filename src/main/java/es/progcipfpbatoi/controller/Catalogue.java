@@ -14,10 +14,7 @@ public class Catalogue {
 
     public void listAll(Class type) {
 
-        MenuCardViewList menuCardView;
-        menuCardView = new MenuCardViewList(productInterface.findAll(type));
-
-
+        MenuCardViewList menuCardView = new MenuCardViewList(productInterface.findAll(type));
         menuCardView.show();
     }
 

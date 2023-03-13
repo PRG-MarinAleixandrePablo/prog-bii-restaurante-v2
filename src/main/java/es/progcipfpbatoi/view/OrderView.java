@@ -54,9 +54,8 @@ public class OrderView {
     }
 
     private String prizeToCurrencyFormat(double prize) {
-        return String.format("%.2f€", order.getOrderPrize());
+        return String.format("%.2f€", prize);
     }
-
     @Override
     public String toString() {
         return renderView();

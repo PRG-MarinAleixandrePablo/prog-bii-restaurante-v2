@@ -19,7 +19,7 @@ public class Waiter {
     }
 
     /**
-     * Creamos un nuevo Pedido
+     * Crea un nuevo pedido con código @code
      * @param code
      * @return
      */
@@ -32,7 +32,8 @@ public class Waiter {
     }
 
     /**
-     * Preguntar al usuario por los productos que desea tomar
+     * Pregunta al usuario por los productos que desea tomar y
+     * los va añadiendo al pedido @order
      */
     private void askForProducts(Order order){
         System.out.println("Buenos días, ¿qué desea tomar?");
@@ -47,7 +48,7 @@ public class Waiter {
     }
 
     /**
-     *  Selecciona productos del tipo @productClass y los añade al pedido
+     *  Selecciona productos del tipo @productClass y los añade al pedido @order
      *
      * @param productClass
      */
@@ -69,7 +70,7 @@ public class Waiter {
     }
 
     /**
-     * Añade el producto seleccionado a la orden
+     * Añade el producto seleccionado @product al pedido @order
      *
      * @param product
      */
@@ -102,7 +103,7 @@ public class Waiter {
     }
 
     /**
-     * Obtenemos el código del producto a introducir / null si no quiere mas
+     * Obtenemos el código del producto a introducir / null si no quiere más
      * @return codigo del producto a añadir
      */
     private String getProductCode() {
@@ -118,8 +119,6 @@ public class Waiter {
             System.out.println("El código de producto introducido no es válido");
         } while (true);
     }
-
-
 
     private String getClientName() {
         return GestorIO.obtenerString("Introduzca su nombre");

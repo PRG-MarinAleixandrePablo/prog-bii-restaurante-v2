@@ -6,11 +6,11 @@ import es.progcipfpbatoi.utils.GestorIO;
 
 public class MenuApp {
 
-    private final int OPTION_CREATE_ORDER = 1;
-    private final int OPTION_LIST = 2;
-    private final int OPTION_VIEW_ORDER = 3;
-    private final int OPTION_SERVE_ORDER = 4;
-    private final int OPTION_EXIT = 5;
+    private static final int OPTION_CREATE_ORDER = 1;
+    private static final int OPTION_LIST = 2;
+    private static final int OPTION_VIEW_ORDER = 3;
+    private static final int OPTION_SERVE_ORDER = 4;
+    private static final int OPTION_EXIT = 5;
 
     private Restaurant restaurant;
 
@@ -28,28 +28,27 @@ public class MenuApp {
     }
 
     private void handleOption(int option){
-        if (option == this.OPTION_CREATE_ORDER) {
+        if (option == OPTION_CREATE_ORDER) {
             restaurant.attendClient();
-        } else if (option == this.OPTION_LIST) {
+        } else if (option == OPTION_LIST) {
             restaurant.listAllOrders();
-        }else if (option == this.OPTION_SERVE_ORDER) {
+        }else if (option == OPTION_SERVE_ORDER) {
             restaurant.serveOrder();
-        }else if (option == this.OPTION_VIEW_ORDER) {
+        }else if (option == OPTION_VIEW_ORDER) {
             restaurant.viewOrder();
-        } else if (option == this.OPTION_EXIT) {
+        } else if (option == OPTION_EXIT) {
             showGoodbyeBanner();
         }else {
             AnsiColor.errorOutput("Opción no válida");
-
         }
     }
 
     private int getUserOption() {
-        System.out.println(this.OPTION_CREATE_ORDER + ". Crear nuevo pedido");
-        System.out.println(this.OPTION_LIST + ". Listar todos los pedidos");
-        System.out.println(this.OPTION_VIEW_ORDER + ". Visualizar orden");
-        System.out.println(this.OPTION_SERVE_ORDER + ". Servir pedido");
-        System.out.println(this.OPTION_EXIT + ". Salir");
+        System.out.println(OPTION_CREATE_ORDER + ". Crear nuevo pedido");
+        System.out.println(OPTION_LIST + ". Listar todos los pedidos");
+        System.out.println(OPTION_VIEW_ORDER + ". Visualizar orden");
+        System.out.println(OPTION_SERVE_ORDER + ". Servir pedido");
+        System.out.println(OPTION_EXIT + ". Salir");
         return GestorIO.obtenerEntero("Selecciona una opción: ");
     }
 
