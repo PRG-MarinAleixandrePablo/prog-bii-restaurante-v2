@@ -1,6 +1,6 @@
 package es.progcipfpbatoi.menu;
 
-import es.progcipfpbatoi.controller.Restaurant;
+import es.progcipfpbatoi.controller.RestaurantController;
 import es.progcipfpbatoi.utils.AnsiColor;
 import es.progcipfpbatoi.utils.GestorIO;
 
@@ -12,9 +12,9 @@ public class MenuApp {
     private static final int OPTION_SERVE_ORDER = 4;
     private static final int OPTION_EXIT = 5;
 
-    private Restaurant restaurant;
+    private RestaurantController restaurant;
 
-    public MenuApp(Restaurant restaurant) {
+    public MenuApp(RestaurantController restaurant) {
         this.restaurant = restaurant;
     }
 

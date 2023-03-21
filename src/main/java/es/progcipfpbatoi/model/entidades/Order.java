@@ -1,6 +1,6 @@
-package es.progcipfpbatoi.model.dto;
+package es.progcipfpbatoi.model.entidades;
 
-import es.progcipfpbatoi.model.dto.producttypes.Product;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
 
 import java.util.ArrayList;
 import java.util.Objects;

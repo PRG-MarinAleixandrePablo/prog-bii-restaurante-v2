@@ -1,4 +1,4 @@
-package es.progcipfpbatoi.model.dto.producttypes;
+package es.progcipfpbatoi.model.entidades.producttypes;
 
 public abstract class Product {
 

@@ -1,22 +1,22 @@
 package es.progcipfpbatoi.controller;
 
 import es.progcipfpbatoi.utils.AnsiColor;
-import es.progcipfpbatoi.model.dto.Order;
-import es.progcipfpbatoi.model.dao.OrderInterface;
-import es.progcipfpbatoi.model.dao.ProductInterface;
+import es.progcipfpbatoi.model.entidades.Order;
+import es.progcipfpbatoi.model.repositorios.OrderInterface;
+import es.progcipfpbatoi.model.repositorios.ProductInterface;
 import es.progcipfpbatoi.utils.GestorIO;
 import es.progcipfpbatoi.view.OrderView;
 import es.progcipfpbatoi.view.OrderViewList;
 
 import java.util.ArrayList;
 
-public class Restaurant {
+public class RestaurantController {
 
     private OrderInterface orderInterface;
     private Waiter waiter;
-    public Restaurant(ProductInterface productInterface, OrderInterface orderInterface) {
+    public RestaurantController(ProductInterface productInterface, OrderInterface orderInterface) {
         this.orderInterface = orderInterface;
-        this.waiter = new Waiter(new Catalogue(productInterface));
+        this.waiter = new Waiter(productInterface);
     }
 
     /**

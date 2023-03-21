@@ -1,21 +1,23 @@
 package es.progcipfpbatoi.controller;
 
-import es.progcipfpbatoi.model.dto.producttypes.types.Desert;
-import es.progcipfpbatoi.model.dto.producttypes.types.Drink;
-import es.progcipfpbatoi.model.dto.producttypes.types.Sandwich;
-import es.progcipfpbatoi.model.dto.producttypes.types.Starter;
+import es.progcipfpbatoi.model.repositorios.ProductInterface;
+import es.progcipfpbatoi.model.entidades.producttypes.types.Desert;
+import es.progcipfpbatoi.model.entidades.producttypes.types.Drink;
+import es.progcipfpbatoi.model.entidades.producttypes.types.Sandwich;
+import es.progcipfpbatoi.model.entidades.producttypes.types.Starter;
 import es.progcipfpbatoi.utils.AnsiColor;
-import es.progcipfpbatoi.model.dto.Order;
-import es.progcipfpbatoi.model.dto.producttypes.Product;
+import es.progcipfpbatoi.model.entidades.Order;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
 import es.progcipfpbatoi.utils.GestorIO;
 import es.progcipfpbatoi.utils.Validator;
+import es.progcipfpbatoi.view.MenuCardViewList;
 
 public class Waiter {
 
-    private final Catalogue catalogue;
+    private ProductInterface productInterface;
 
-    public Waiter(Catalogue catalogue) {
-        this.catalogue = catalogue;
+    public Waiter(ProductInterface productInterface) {
+        this.productInterface = productInterface;
     }
 
     /**
@@ -53,7 +55,7 @@ public class Waiter {
      * @param productClass
      */
     private void selectProductsOfType(Class productClass, Order order){
-        catalogue.listAll(productClass);
+        listAllProducts(productClass);
         do {
             Product product = askForNewProduct();
             if (product == null) {
@@ -93,7 +95,7 @@ public class Waiter {
             if (code == null) {
                 return null;
             }
-            Product product = catalogue.findByCod(code);
+            Product product = productInterface.findByCod(code);
             if (product == null) {
                 AnsiColor.errorOutput("El código del producto introducido no existe");
             } else {
@@ -156,5 +158,11 @@ public class Waiter {
     private boolean confirmSelection() {
         String message = "El producto seleccionado no pertenece a la categoría, desea agregarlo (S/N) ";
         return GestorIO.obtenerString(AnsiColor.colorize(AnsiColor.GREEN, message)).charAt(0) == 'S';
+    }
+
+    private void listAllProducts(Class type) {
+
+        MenuCardViewList menuCardView = new MenuCardViewList(productInterface.findAll(type));
+        menuCardView.show();
     }
 }

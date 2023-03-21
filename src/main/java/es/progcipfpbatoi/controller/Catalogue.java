@@ -1,8 +1,7 @@
 package es.progcipfpbatoi.controller;
 
-import es.progcipfpbatoi.model.dto.producttypes.Product;
-import es.progcipfpbatoi.model.dao.ProductInterface;
-import es.progcipfpbatoi.view.MenuCardViewList;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
+import es.progcipfpbatoi.model.repositorios.ProductInterface;
 
 public class Catalogue {
 
@@ -12,11 +11,7 @@ public class Catalogue {
         this.productInterface = productInterface;
     }
 
-    public void listAll(Class type) {
 
-        MenuCardViewList menuCardView = new MenuCardViewList(productInterface.findAll(type));
-        menuCardView.show();
-    }
 
     public Product findByCod(String cod) {
         return productInterface.findByCod(cod);

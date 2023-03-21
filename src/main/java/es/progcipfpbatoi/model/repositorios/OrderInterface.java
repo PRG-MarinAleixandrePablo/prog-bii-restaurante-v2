@@ -1,6 +1,6 @@
-package es.progcipfpbatoi.model.dao;
+package es.progcipfpbatoi.model.repositorios;
 
-import es.progcipfpbatoi.model.dto.Order;
+import es.progcipfpbatoi.model.entidades.Order;
 
 import java.util.ArrayList;
 

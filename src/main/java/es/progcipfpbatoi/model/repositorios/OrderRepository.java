@@ -1,15 +1,15 @@
-package es.progcipfpbatoi.model.dao;
+package es.progcipfpbatoi.model.repositorios;
 
 
-import es.progcipfpbatoi.model.dto.Order;
+import es.progcipfpbatoi.model.entidades.Order;
 
 import java.util.ArrayList;
 
-public class InMemoryOrderRepository implements OrderInterface {
+public class OrderRepository implements OrderInterface {
 
     private ArrayList<Order> orderList;
 
-    public InMemoryOrderRepository() {
+    public OrderRepository() {
         this.orderList = new ArrayList<>();
     }
 

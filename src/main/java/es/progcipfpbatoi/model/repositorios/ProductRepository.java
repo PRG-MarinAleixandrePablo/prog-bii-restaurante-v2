@@ -1,16 +1,16 @@
-package es.progcipfpbatoi.model.dao;
+package es.progcipfpbatoi.model.repositorios;
 
-import es.progcipfpbatoi.model.dto.producttypes.Product;
-import es.progcipfpbatoi.model.dto.producttypes.types.*;
+import es.progcipfpbatoi.model.entidades.producttypes.Product;
+import es.progcipfpbatoi.model.entidades.producttypes.types.*;
 
 import java.util.ArrayList;
 
-public class InMemoryProductRepository implements ProductInterface{
+public class ProductRepository implements ProductInterface{
     private ArrayList<Product> productList;
 
     private int numericCode;
 
-    public InMemoryProductRepository() {
+    public ProductRepository() {
         numericCode = 1;
         productList = new ArrayList<>();
         setDefaultSandwichList();
@@ -31,6 +31,7 @@ public class InMemoryProductRepository implements ProductInterface{
         return productsFiltered;
     }
 
+    @Override
     public Product findByCod(String cod) {
         for (Product product: productList) {
             if (product.containsThisCode(cod)){
