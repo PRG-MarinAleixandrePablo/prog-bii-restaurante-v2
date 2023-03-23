@@ -6,6 +6,5 @@ import java.util.ArrayList;
 
 public interface ProductInterface {
     ArrayList<Product> findAll(Class<? extends Product> productClass);
-
     Product findByCod(String cod);
 }
