@@ -161,7 +161,6 @@ public class Waiter {
     }
 
     private void listAllProducts(Class type) {
-
         MenuCardViewList menuCardView = new MenuCardViewList(productRepository.findAll(type));
         menuCardView.show();
     }

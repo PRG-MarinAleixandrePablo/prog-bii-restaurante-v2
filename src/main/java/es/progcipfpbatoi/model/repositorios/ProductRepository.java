@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class ProductRepository implements ProductInterface{
     private ArrayList<Product> productList;
-
     private int numericCode;
 
     public ProductRepository() {

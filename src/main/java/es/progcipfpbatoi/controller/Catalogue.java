@@ -10,9 +10,8 @@ public class Catalogue {
         this.productInterface = productInterface;
     }
 
-
-
     public Product findByCod(String cod) {
         return productInterface.findByCod(cod);
     }
+
 }

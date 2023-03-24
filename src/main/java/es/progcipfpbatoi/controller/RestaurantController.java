@@ -65,11 +65,9 @@ public class RestaurantController {
      *  Permite marcar una orden como servida
      */
     public void serveOrder() {
-
         if(!showPendingOrderList()){
             return;
         }
-
         String orderCode = GestorIO.obtenerString(AnsiColor.colorize(AnsiColor.HIGH_INTENSITY, "Introduzca el código de la orden que desea servir"));
         Order order = orderRepository.findByCod(orderCode);
         if (order == null) {
@@ -78,14 +76,12 @@ public class RestaurantController {
             order.setServed();
             System.out.println(AnsiColor.colorize(AnsiColor.GREEN, "El pedido ha sido marcado como servido"));
         }
-
     }
 
     /**
      * muestra la lista de ordenes pendientes de servir
      */
     private boolean showPendingOrderList() {
-
         ArrayList<Order> pendingServedOrderList = new ArrayList<>();
         for (Order order: orderRepository.findAll()) {
             if (!order.isServed()) {
@@ -95,7 +91,6 @@ public class RestaurantController {
         OrderViewList orderViewList = new OrderViewList(pendingServedOrderList);
         orderViewList.show();
         return pendingServedOrderList.size() > 0 ;
-
     }
 
     private String getNextOrderCode(){

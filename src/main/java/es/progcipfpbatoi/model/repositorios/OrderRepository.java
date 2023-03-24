@@ -30,7 +30,6 @@ public class OrderRepository implements OrderInterface {
 
     @Override
     public Order findByCod(String code) {
-
         Order orderBuscada = new Order(code);
         if (orderList.contains(orderBuscada)) {
             return orderList.get(orderList.indexOf(orderBuscada));
