@@ -1,9 +1,9 @@
 package es.progcipfpbatoi.controller;
 
+import es.progcipfpbatoi.model.repositorios.OrderRepository;
+import es.progcipfpbatoi.model.repositorios.ProductRepository;
 import es.progcipfpbatoi.utils.AnsiColor;
 import es.progcipfpbatoi.model.entidades.Order;
-import es.progcipfpbatoi.model.repositorios.OrderInterface;
-import es.progcipfpbatoi.model.repositorios.ProductInterface;
 import es.progcipfpbatoi.utils.GestorIO;
 import es.progcipfpbatoi.view.OrderView;
 import es.progcipfpbatoi.view.OrderViewList;
@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 public class RestaurantController {
 
-    private OrderInterface orderInterface;
+    private OrderRepository orderRepository;
     private Waiter waiter;
-    public RestaurantController(ProductInterface productInterface, OrderInterface orderInterface) {
-        this.orderInterface = orderInterface;
-        this.waiter = new Waiter(productInterface);
+    public RestaurantController(ProductRepository productRepository, OrderRepository orderInterface) {
+        this.orderRepository = orderInterface;
+        this.waiter = new Waiter(productRepository);
     }
 
     /**
@@ -25,7 +25,7 @@ public class RestaurantController {
     public void attendClient() {
         Order order = waiter.attend(getNextOrderCode());
         if (order != null) {
-            orderInterface.add(order);
+            orderRepository.add(order);
             System.out.println(AnsiColor.colorize(AnsiColor.GREEN, "Pedido registrado con éxito "));
             showOrder(order);
         } else {
@@ -37,10 +37,10 @@ public class RestaurantController {
      * Lista todas los pedidos
      */
     public void listAllOrders() {
-        if (orderInterface.size() == 0) {
+        if (orderRepository.size() == 0) {
             System.out.println(AnsiColor.colorize(AnsiColor.RED, "No existen pedidos en el restaurante"));
         } else {
-            OrderViewList orderViewList = new OrderViewList(orderInterface.findAll());
+            OrderViewList orderViewList = new OrderViewList(orderRepository.findAll());
             System.out.println(orderViewList);
         }
     }
@@ -50,9 +50,9 @@ public class RestaurantController {
      */
     public void viewOrder() {
         listAllOrders();
-        if (orderInterface.size() >= 0) {
+        if (orderRepository.size() >= 0) {
             String orderCode = GestorIO.obtenerString(AnsiColor.colorize(AnsiColor.HIGH_INTENSITY, "Introduzca el código del pedido que deseas visualizar"));
-            Order order = orderInterface.findByCod(orderCode);
+            Order order = orderRepository.findByCod(orderCode);
             if (order == null) {
                 System.out.println(AnsiColor.colorize(AnsiColor.RED, "El pedido introducido no existe"));
             } else {
@@ -71,7 +71,7 @@ public class RestaurantController {
         }
 
         String orderCode = GestorIO.obtenerString(AnsiColor.colorize(AnsiColor.HIGH_INTENSITY, "Introduzca el código de la orden que desea servir"));
-        Order order = orderInterface.findByCod(orderCode);
+        Order order = orderRepository.findByCod(orderCode);
         if (order == null) {
             System.out.println(AnsiColor.colorize(AnsiColor.RED, "El pedido introducido no existe"));
         } else {
@@ -87,7 +87,7 @@ public class RestaurantController {
     private boolean showPendingOrderList() {
 
         ArrayList<Order> pendingServedOrderList = new ArrayList<>();
-        for (Order order: orderInterface.findAll()) {
+        for (Order order: orderRepository.findAll()) {
             if (!order.isServed()) {
                 pendingServedOrderList.add(order);
             }
@@ -99,7 +99,7 @@ public class RestaurantController {
     }
 
     private String getNextOrderCode(){
-        return "o" + (orderInterface.size() + 1);
+        return "o" + (orderRepository.size() + 1);
     }
 
     /**

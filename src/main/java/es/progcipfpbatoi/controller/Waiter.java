@@ -1,10 +1,10 @@
 package es.progcipfpbatoi.controller;
 
-import es.progcipfpbatoi.model.repositorios.ProductInterface;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Desert;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Drink;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Sandwich;
 import es.progcipfpbatoi.model.entidades.producttypes.types.Starter;
+import es.progcipfpbatoi.model.repositorios.ProductRepository;
 import es.progcipfpbatoi.utils.AnsiColor;
 import es.progcipfpbatoi.model.entidades.Order;
 import es.progcipfpbatoi.model.entidades.producttypes.Product;
@@ -14,10 +14,10 @@ import es.progcipfpbatoi.view.MenuCardViewList;
 
 public class Waiter {
 
-    private ProductInterface productInterface;
+    private ProductRepository productRepository;
 
-    public Waiter(ProductInterface productInterface) {
-        this.productInterface = productInterface;
+    public Waiter(ProductRepository productInterface) {
+        this.productRepository = productInterface;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Waiter {
             if (code == null) {
                 return null;
             }
-            Product product = productInterface.findByCod(code);
+            Product product = productRepository.findByCod(code);
             if (product == null) {
                 AnsiColor.errorOutput("El código del producto introducido no existe");
             } else {
@@ -162,7 +162,7 @@ public class Waiter {
 
     private void listAllProducts(Class type) {
 
-        MenuCardViewList menuCardView = new MenuCardViewList(productInterface.findAll(type));
+        MenuCardViewList menuCardView = new MenuCardViewList(productRepository.findAll(type));
         menuCardView.show();
     }
 }

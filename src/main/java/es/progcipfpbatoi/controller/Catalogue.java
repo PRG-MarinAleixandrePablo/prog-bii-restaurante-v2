@@ -1,7 +1,6 @@
 package es.progcipfpbatoi.controller;
 
 import es.progcipfpbatoi.model.entidades.producttypes.Product;
-import es.progcipfpbatoi.model.repositorios.ProductInterface;
 
 public class Catalogue {
 
