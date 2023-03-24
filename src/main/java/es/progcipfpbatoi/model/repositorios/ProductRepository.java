@@ -5,7 +5,7 @@ import es.progcipfpbatoi.model.entidades.producttypes.types.*;
 
 import java.util.ArrayList;
 
-public class ProductRepository implements ProductInterface{
+public class ProductRepository {
     private ArrayList<Product> productList;
     private int numericCode;
 
@@ -18,7 +18,6 @@ public class ProductRepository implements ProductInterface{
         setDefaultDesertList();
     }
 
-    @Override
     public ArrayList<Product> findAll(Class<? extends Product> productClass) {
         ArrayList<Product> productsFiltered = new ArrayList<>();
         for (Product current: productList) {
@@ -30,7 +29,6 @@ public class ProductRepository implements ProductInterface{
         return productsFiltered;
     }
 
-    @Override
     public Product findByCod(String cod) {
         for (Product product: productList) {
             if (product.containsThisCode(cod)){

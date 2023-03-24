@@ -1,17 +1,18 @@
 package es.progcipfpbatoi.controller;
 
 import es.progcipfpbatoi.model.entidades.producttypes.Product;
+import es.progcipfpbatoi.model.repositorios.ProductRepository;
 
 public class Catalogue {
 
-    private final ProductInterface productInterface;
+    private final ProductRepository productRepository;
 
-    public Catalogue(ProductInterface productInterface) {
-        this.productInterface = productInterface;
+    public Catalogue(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     public Product findByCod(String cod) {
-        return productInterface.findByCod(cod);
+        return productRepository.findByCod(cod);
     }
 
 }
