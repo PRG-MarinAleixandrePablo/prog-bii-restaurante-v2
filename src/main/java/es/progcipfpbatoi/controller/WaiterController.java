@@ -12,11 +12,11 @@ import es.progcipfpbatoi.utils.GestorIO;
 import es.progcipfpbatoi.utils.Validator;
 import es.progcipfpbatoi.view.MenuCardViewList;
 
-public class Waiter {
+public class WaiterController {
 
     private ProductRepository productRepository;
 
-    public Waiter(ProductRepository productInterface) {
+    public WaiterController(ProductRepository productInterface) {
         this.productRepository = productInterface;
     }
 

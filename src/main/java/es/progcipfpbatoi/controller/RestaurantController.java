@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class RestaurantController {
 
     private OrderRepository orderRepository;
-    private Waiter waiter;
+    private WaiterController waiter;
     public RestaurantController(ProductRepository productRepository, OrderRepository orderInterface) {
         this.orderRepository = orderInterface;
-        this.waiter = new Waiter(productRepository);
+        this.waiter = new WaiterController(productRepository);
     }
 
     /**
